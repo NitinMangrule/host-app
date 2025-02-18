@@ -64,7 +64,7 @@ function App() {
               path="/"
               element={
                 <div className="w-full max-w-2xl bg-white rounded-lg my-16 p-8 md:p-16">
-                  <h1 className="text-4xl font-medium text-center p-20">
+                  <h1 className="cursor-pointer text-4xl text-blue-500 font-medium text-center p-20">
                     Welcome to Music Library
                   </h1>
                 </div>
