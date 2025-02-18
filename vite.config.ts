@@ -36,4 +36,8 @@ export default defineConfig({
     cssCodeSplit: false,
   },
   base: process.env.VITE_BASE || "/",
+  server: {
+    port: 5000,
+    cors: true,
+  },
 });
