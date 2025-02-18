@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 interface User {
   role?: string;
 }
+
 const AuthContext = createContext<{
   user: User | null;
   login: (role: User) => void;
