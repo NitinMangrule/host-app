@@ -27,18 +27,28 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const navigate = useNavigate();
+
   const login = (role: any) => {
     const token = btoa(JSON.stringify({ role }));
     localStorage.setItem("token", token);
     setUser({ role });
   };
 
-  const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
     navigate("/");
   };
+
+  // Check for saved token on initial load
+  useState(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const { role } = JSON.parse(atob(token));
+      setUser({ role });
+    }
+  });
 
   const isAdmin = user?.role === "admin";
 
